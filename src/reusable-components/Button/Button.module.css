@@ -1,0 +1,72 @@
+
+.container {
+  height: 35px;
+  margin: auto;
+  text-align: center;
+}
+
+.buttonFilled {
+  background-color: var(--primary);
+  border: none;
+  border-radius: 2px;
+  color: var(--primary-white);
+  height: 100%;
+  margin: auto;
+  outline: 1px solid var(--primary);;
+  width: 100%;
+}
+
+.buttonFilled:hover {
+  background-color: var(--primary-dark);
+}
+
+.buttonOutlined {
+  background: white;
+  border: none;
+  border-radius: 2px;
+  color: var(--primary);
+  height: 100%;
+  margin: auto;
+  width: 100%;
+  outline: 1px solid var(--primary-dark);
+}
+.buttonOutlined:hover {
+  background: var(--primary-dark);
+  color: white;
+}
+
+.buttonFilled:hover, .buttonOutlined:hover {
+  cursor: pointer;
+}
+
+.buttonFilled:active {
+  background: var(--primary-dark-2);
+  color: white;
+  outline: 1px solid var(--primary-dark-2);
+}
+
+.buttonOutlined:active {
+  background: var(--primary-dark-2);
+  color: white;
+  outline: 1px solid var(--primary-dark-2);
+}
+
+.buttonDisabled {
+  background: var(--primary_grey);
+  outline: var(--primary_grey);
+}
+.buttonDisabled:hover {
+  background: var(--primary_grey);
+  cursor: not-allowed;
+  outline: var(--primary_grey);
+}
+.buttonDisabled:active {
+  background: var(--primary_grey);
+  cursor: not-allowed;
+  outline: var(--primary_grey);
+}
+
+.text {
+  height: 100%;
+}
+

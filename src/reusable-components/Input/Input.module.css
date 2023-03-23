@@ -1,0 +1,89 @@
+.inputContainer {
+  margin-top: 10px;
+  position: relative;
+  max-width: 100%;
+  outline: 1px solid var(--primary-grey);
+  border-radius: 2px;
+}
+
+.inputFocusedContainer {
+  box-shadow: none;
+  /*box-shadow: 2px 2px 2px var(--primary), 0 0 2px 2px var(--primary);*/
+  outline: 1px solid var(--primary);
+}
+
+.inputErrorContainer {
+  outline: 1px solid var(--error);
+}
+
+.noErrorContainer {
+  margin-bottom: 20px;
+}
+
+.inputDisabledContainer {
+  outline: 1px solid var(--primary-disabled);
+}
+
+
+.inputContainer input {
+  background: var(--primary-background) !important;
+  width: 100%;
+  height: 40px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.inputFocusedContainer input {
+  /*color: var(--primary);*/
+  color: var(--primary-black);
+}
+
+.inputErrorContainer input {
+  color: var(--error);
+}
+
+.inputDisabledContainer input {
+  color: var(--disabled);
+}
+
+.labelDefault {
+  position: absolute;
+  top: 14px;
+  left: 10px;
+  font-size: 14px;
+  color: var(--primary-grey);
+  transition: all 0.2s ease;
+}
+
+.labelTop {
+  position: absolute;
+  top: -6px;
+  left: 10px;
+  font-size: 12px;
+  color: var(--primary);
+  transition: all 0.2s ease;
+  background: var(--primary-background);
+}
+
+.inputDisabledContainer label {
+  color: var(--primary-disabled);
+}
+
+.labelError {
+  color: var(--error);
+}
+
+.errorContainer {
+  margin-top: 5px;
+  min-height: 17px;
+}
+
+.errorContainer span {
+  color: var(--error);
+}
+
+.errorContainer li {
+  list-style: none;
+}
