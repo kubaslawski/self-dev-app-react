@@ -1,0 +1,31 @@
+.container {
+
+}
+
+.formContainer {
+  width: 50%;
+  margin: 150px auto 0 auto;
+}
+
+.formTitle {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.form {
+  margin: 15px;
+}
+
+.forgotPasswordContainer {
+  text-align: center;
+}
+.forgotPasswordContainer a {
+  color: var(--primary);
+}
+.forgotPasswordContainer a:hover {
+  color: var(--primary);
+}
+
+.submitButtonContainer {
+  margin-top: 10px;
+}

@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+}
+
+.targetsContainer, .statsContainer {
+  display: flex;
+  place-content: center;
+}
+
+.targetsContainer {
+  width: 70%;
+}
+
+.statsContainer {
+ width: 30%;
+}
