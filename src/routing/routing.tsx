@@ -1,11 +1,11 @@
 import React from 'react';
-import {Route, Routes, BrowserRouter} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 // routes
 import {paths} from "./paths";
 
 const Routing: React.FC = () => {
+
 	return (
-		<BrowserRouter>
 			<Routes>
 				{Object.entries(paths).map(([key, value]) => {
 					return (
@@ -13,7 +13,6 @@ const Routing: React.FC = () => {
 					)
 				})}
 			</Routes>
-		</BrowserRouter>
 	);
 };
 
