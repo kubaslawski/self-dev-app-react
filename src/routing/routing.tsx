@@ -1,24 +1,19 @@
 import React from 'react';
-import {Router, Route, Routes, BrowserRouter} from "react-router-dom";
-// pages
-import Habits from "../pages/Habits";
-import Home from "../pages/Home/Home";
-import LoginPage from "../pages/auth/login";
-import SignUp from "../pages/SignUp";
-import Tasks from "../pages/Tasks";
+import {Route, Routes, BrowserRouter} from "react-router-dom";
+// routes
+import {paths} from "./paths";
 
 const Routing: React.FC = () => {
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route path={"/"} element={<Home/>}/>
-				<Route path={"/login"} element={<LoginPage/>}/>
-				<Route path={"/signup"} element={<SignUp/>}/>
-				<Route path={"/tasks"} element={<Tasks/>}/>
-				<Route path={"/habits"} element={<Habits/>}/>
+				{Object.entries(paths).map(([key, value]) => {
+					return (
+						<Route key={key} path={value.path} element={<value.element/>}/>
+					)
+				})}
 			</Routes>
 		</BrowserRouter>
-
 	);
 };
 
