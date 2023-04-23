@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from "react";
 import styles from "./forgot-password.module.css";
 // components
-import Button from "../../reusable-components/Button/Button";
-import Card from "../../reusable-components/Card/Card";
-import Input from "../../reusable-components/Input/Input";
-import Modal from "../../reusable-components/Modal/Modal";
+import Button from "../../../reusable-components/Button/Button";
+import Card from "../../../reusable-components/Card/Card";
+import Input from "../../../reusable-components/Input/Input";
+import Modal from "../../../reusable-components/Modal/Modal";
 // hooks
-import useInput from "../../hooks/useInput";
+import useInput from "../../../hooks/useInput";
 // ext libraries
 import {Link} from "react-router-dom";
 
