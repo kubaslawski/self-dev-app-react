@@ -9,11 +9,11 @@ interface IModal {
 const Modal: React.FC<IModal> = (
 	{
 		children,
-		isOpen = false,
+		isOpen,
 	}) => {
 
 	return (
-			<div className={isOpen ? styles.modalContainer : ""	}>
+			<div className={isOpen ? styles.modalContainer : ""}>
 				<div className={[styles.modal, isOpen ? styles.modalOpen : styles.modalClosed].join(" ")}>
 					{children}
 				</div>

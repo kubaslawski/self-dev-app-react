@@ -5,13 +5,12 @@ import {Link, useLocation} from "react-router-dom";
 const Navbar: React.FC = () => {
 
 	const location = useLocation();
-	console.log(location)
 
 	return (
 		<nav className={styles.navbarContainer}>
 			<div className={styles.linksContainer}>
 				<div className={styles.leftLinks}>
-					<Link className={[styles.link, location.pathname === "/" ? styles.active : ""].join(" ")} to={"/home"}>
+					<Link className={[styles.link, location.pathname === "/" ? styles.active : ""].join(" ")} to={"/"}>
 						Home
 					</Link>
 					<Link className={[styles.link, location.pathname === "/tasks" ? styles.active : ""].join(" ")} to={"/tasks"}>

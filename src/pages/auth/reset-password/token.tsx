@@ -11,7 +11,7 @@ import axios from "axios";
 import {useParams} from "react-router-dom";
 
 
-const PasswordResetPage: React.FC = () => {
+const ResetPasswordPage: React.FC = () => {
 	const params = useParams()
 	const token = params;
 
@@ -104,4 +104,4 @@ const PasswordResetPage: React.FC = () => {
 	)
 }
 
-export default PasswordResetPage;
+export default ResetPasswordPage;
