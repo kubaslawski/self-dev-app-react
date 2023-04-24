@@ -29,4 +29,4 @@ class APIConnect implements IAPIConnect {
 	};
 }
 
-export default APIConnect
+export default APIConnect;

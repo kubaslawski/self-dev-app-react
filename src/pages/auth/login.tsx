@@ -1,21 +1,20 @@
 import React, {useState, useEffect} from "react";
 import styles from "./login.module.css";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 // components
 import Button from "../../reusable-components/Button/Button";
 import Card from "../../reusable-components/Card/Card";
 import Input from "../../reusable-components/Input/Input";
+import MainErrorMessage from "../../reusable-components/MainErrorMessage/MainErrorMessage";
 // hooks
 import useInput from "../../hooks/useInput";
-
-
-
-
-interface ILoginUserData {
-	email: string;
-	password: string;
-}
+// redux
+import {LOGIN_REQUEST} from "../../redux/types";
+import store from "../../redux/store";
+// interfaces
+import {ILoginUserData} from "../../global/interfaces/ILoginUserData";
+import {IErrors} from "../../global/interfaces/IErrors";
 
 interface ILoginFormErrors {
 	email: Array<string>;
@@ -24,6 +23,8 @@ interface ILoginFormErrors {
 }
 
 const LoginPage: React.FC = () => {
+
+	const errors: IErrors = useSelector((state: any) => state.ui.errors);
 
 	const [formDataErrors, setFormDataErrors] = useState<ILoginFormErrors>({
 		email: [],
@@ -52,9 +53,16 @@ const LoginPage: React.FC = () => {
 	} = useInput((value: string) => value.trim().length > 0, formDataErrors.password);
 
 	const [isFormValid, setIsFormValid] = useState<boolean>(false);
+
 	useEffect(() => {
 		setIsFormValid(enteredEmailIsValid && enteredPasswordIsValid)
-	}, [enteredEmailIsValid, enteredPasswordIsValid]);
+	}, [enteredEmail, enteredPassword]);
+
+	useEffect(() => {
+		if(errors.main.length > 0){
+			setIsFormValid(false);
+		}
+	}, [errors])
 
 	const resetInputs = () => {
 		enteredEmailReset();
@@ -67,6 +75,11 @@ const LoginPage: React.FC = () => {
 			email: enteredEmail,
 		  password: enteredPassword
 		}
+		store.dispatch({
+			type: LOGIN_REQUEST,
+			payload: userData
+		})
+		resetInputs();
 		// dispatch(loginUser(userData));
 	};
 
@@ -98,6 +111,7 @@ const LoginPage: React.FC = () => {
 							type={"password"}
 							value={enteredPassword}
 						/>
+						<MainErrorMessage errors={errors.main}/>
 						<div className={styles.forgotPasswordContainer}>
 							<Link to={"/auth/forgot-password"}>
 								Don't remember your password? Click here
