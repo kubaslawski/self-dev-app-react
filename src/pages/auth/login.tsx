@@ -62,12 +62,7 @@ const LoginPage: React.FC = () => {
 		if(errors.main.length > 0){
 			setIsFormValid(false);
 		}
-	}, [errors])
-
-	const resetInputs = () => {
-		enteredEmailReset();
-		enteredPasswordReset();
-	};
+	}, [errors]);
 
 	const handleSubmitForm = (event: React.FormEvent) => {
 		event.preventDefault();
@@ -79,7 +74,7 @@ const LoginPage: React.FC = () => {
 			type: LOGIN_REQUEST,
 			payload: userData
 		})
-		resetInputs();
+		// resetInputs();
 		// dispatch(loginUser(userData));
 	};
 

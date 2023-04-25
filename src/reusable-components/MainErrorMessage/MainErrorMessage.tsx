@@ -8,8 +8,8 @@ interface IMainErrorMessage {
 const MainErrorMessage: React.FC<IMainErrorMessage> = ({errors}) => {
 	return (
 		<div className={styles.container}>
-			{errors.map((err) => {
-				return <span className={styles.errorMessage}>{err}</span>
+			{errors.map((err, index) => {
+				return <span key={index} className={styles.errorMessage}>{err}</span>
 			})}
 		</div>
 	);
