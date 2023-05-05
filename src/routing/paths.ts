@@ -9,26 +9,32 @@ import Tasks from "../pages/Tasks";
 import ErrorPage from "../pages/error/ErrorPage";
 
 interface IRoutePath {
-	path: string;
-	element: React.FC;
+  path: string;
+  element: React.FC;
+  isPrivate?: boolean;
 }
 
-class RoutePath implements IRoutePath{
-  constructor(public path: string, public element: React.FC) {
+class RoutePath implements IRoutePath {
+  constructor(
+    public path: string,
+    public element: React.FC,
+    public isPrivate?: boolean,
+  ) {
     this.path = path;
     this.element = element;
+    this.isPrivate = isPrivate;
   }
 }
 
 export const paths = {
-	home: new RoutePath("/", HomePage),
+  home: new RoutePath("/", HomePage),
   login: new RoutePath("/auth/login", LoginPage),
-  signup: new RoutePath("/auth/signup", SignUpPage),
+  signup: new RoutePath("/auth/signup", SignUpPage, false),
   forgotPassword: new RoutePath("/auth/forgot-password", ForgotPasswordPage),
   resetPassword: new RoutePath("/auth/reset-password/:token", ResetPasswordPage),
-	habits: new RoutePath("/habits", Habits),
-	habit: new RoutePath("/habit/:habitId", Habits),
-	tasks: new RoutePath("/tasks", Tasks),
-	task: new RoutePath("/task/:taskId", Tasks),
-	error: new RoutePath("*", ErrorPage),
+  habits: new RoutePath("/habits", Habits, true),
+  habit: new RoutePath("/habit/:habitId", Habits, true),
+  tasks: new RoutePath("/tasks", Tasks, true),
+  task: new RoutePath("/task/:taskId", Tasks, true),
+  error: new RoutePath("*", ErrorPage, true),
 };
