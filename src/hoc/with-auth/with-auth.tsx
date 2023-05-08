@@ -8,21 +8,29 @@ import {paths} from "../../routing/paths";
 import Navbar from "../../components/Navbar/Navbar";
 import {SELF_DEV_APP_ACCESS_TOKEN} from "../../global/variables";
 import {IDecodedToken} from "../../global/interfaces/jwt";
+import {useDispatch, useSelector} from "react-redux";
+import {SET_IS_AUTHENTICATED} from "../../redux/types";
 
 
-const withAuth = (
+const WithAuth = (
 	Component: JSX.Element
 ): JSX.Element => {
-	let isAuthenticated: boolean = false;
+	const dispatch = useDispatch();
+	const isAuthenticated: boolean = useSelector((state: any) => state.user.isAuthenticated);
 	const token: string | null = sessionStorage.getItem(SELF_DEV_APP_ACCESS_TOKEN);
 	if(token){
 		const decodedToken: IDecodedToken = jwtDecode(token);
-		isAuthenticated = token ? decodedToken.exp * 1000 >= Date.now() : false;
+		dispatch({
+			type: SET_IS_AUTHENTICATED,
+			payload: token ? decodedToken.exp * 1000 >= Date.now() : false,
+		})
 	}
 	return isAuthenticated ? Component : <Navigate to="/auth/login" />;
 };
 
 const Router = () => {
+	// const isAuthenticated: boolean = useSelector((state: any) => state.user.isAuthenticated);
+
 	return (
 		<BrowserRouter>
 			<Navbar/>
@@ -31,7 +39,7 @@ const Router = () => {
 					return (
 						<Route
 							path={value.path}
-							element={value.isPrivate ? withAuth(<value.element/>) : <value.element/>}
+							element={value.isPrivate ? WithAuth(<value.element/>) : <value.element/>}
 						/>
 					)
 				})}

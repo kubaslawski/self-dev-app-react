@@ -1,4 +1,9 @@
 export const LOGIN_REQUEST = "LOGIN_REQUEST";
-export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAILURE = "LOGIN_FAILURE";
-export const LOGOUT = "LOGOUT";
+
+export const SET_IS_AUTHENTICATED = "SET_IS_AUTHENTICATED";
+
+export const FETCH_USER_DATA = "FETCH_USER_DATA";
+export const SET_USER_DATA = "SET_USER_DATA";
+
+export const REQUEST_ERROR = "REQUEST_ERROR";

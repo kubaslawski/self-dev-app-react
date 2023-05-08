@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import styles from "./login.module.css";
 import {useSelector} from "react-redux";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 // components
 import Button from "../../reusable-components/Button/Button";
 import Card from "../../reusable-components/Card/Card";
@@ -25,6 +25,7 @@ interface ILoginFormErrors {
 const LoginPage: React.FC = () => {
 
 	const errors: IErrors = useSelector((state: any) => state.ui.errors);
+	const navigate = useNavigate();
 
 	const [formDataErrors, setFormDataErrors] = useState<ILoginFormErrors>({
 		email: [],
@@ -72,7 +73,7 @@ const LoginPage: React.FC = () => {
 		}
 		store.dispatch({
 			type: LOGIN_REQUEST,
-			payload: userData
+			payload: {userData: userData, navigate: navigate}
 		})
 		// resetInputs();
 		// dispatch(loginUser(userData));

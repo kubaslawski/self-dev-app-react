@@ -1,6 +1,7 @@
-import {IAction} from "../../global/interfaces/IAction";
+import { IAction } from "../../global/interfaces/IAction";
 import {
-	LOGIN_SUCCESS
+		SET_USER_DATA,
+	SET_IS_AUTHENTICATED,
 } from "../types";
 
 interface IUserState {
@@ -12,16 +13,16 @@ const initialState: IUserState = {
 }
 
 const userReducer = (state: IUserState, action: IAction) => {
-	switch (action.type){
-		// case LOGIN_REQUEST:
-		// 	return {
-		// 		...state,
-		// 		isAuthenticated:
-		// 	}
-		case LOGIN_SUCCESS:
+	switch (action.type) {
+		case SET_IS_AUTHENTICATED:
+			return {
+				...state,
+				isAuthenticated: action.payload
+			}
+		case SET_USER_DATA:
 			return {
 				...initialState,
-				isAuthenticated: true,
+				...action.payload,
 			}
 		default: return initialState;
 	}
